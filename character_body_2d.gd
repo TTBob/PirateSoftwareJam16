@@ -18,6 +18,7 @@ extends CharacterBody2D
 var is_dashing:bool = false
 var base_speed = speed
 var is_reversing_anim:bool = true
+var test_count:int = 1
 func animate(state: String):
 	if state == "walking":
 		pass
@@ -50,11 +51,16 @@ func _physics_process(delta: float) -> void:
 		animate("walking")
 		if direction == -1:
 			animation_ref.flip_h = true
-			print(direction)
 		if direction == 1:
 			animation_ref.flip_h = false
-			print(direction)
 	else:
 		velocity.x = move_toward(velocity.x, 0, momentum["end_velocity"])
 
 	move_and_slide()
+func _process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed(direction_input["dash"]):
+		%Camera_setter.teleport_to_area(test_count)
+		test_count +=1
+		print("test count"+ str(test_count))
+		
