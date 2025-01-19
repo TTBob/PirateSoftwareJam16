@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://crlgxhn2l5o4o"]
+
+[ext_resource type="Script" path="res://interactable_area/item.gd" id="1_fi8x6"]
+[ext_resource type="Texture2D" uid="uid://cnlnjhfk6bb6m" path="res://art/noun-pointer-7365.png" id="2_1redk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ph34x"]
+
+[sub_resource type="Animation" id="Animation_f8qe6"]
+resource_name = "on"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5rwc3"]
+_data = {
+"on": SubResource("Animation_f8qe6")
+}
+
+[node name="item" type="Area2D"]
+script = ExtResource("1_fi8x6")
+action_value = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ph34x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5rwc3")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, -33)
+rotation = -3.14159
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("2_1redk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
