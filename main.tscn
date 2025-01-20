@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://heltbvr0mbgf"]
+[gd_scene load_steps=48 format=3 uid="uid://heltbvr0mbgf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_7b6t8"]
 [ext_resource type="PackedScene" uid="uid://ctr37rs2qv0yu" path="res://floors/floor.tscn" id="2_cme58"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://crlgxhn2l5o4o" path="res://interactable_area/item.tscn" id="5_ef3xn"]
 [ext_resource type="PackedScene" uid="uid://dee7j1gdlg4v6" path="res://character_scripts/character_body_2d.tscn" id="7_6ibol"]
 [ext_resource type="PackedScene" uid="uid://cefnyw8e5wfq2" path="res://dialog_popup.tscn" id="8_rt1we"]
+[ext_resource type="Script" path="res://main scene/audio_handler.gd" id="10_qiers"]
 
 [sub_resource type="Gradient" id="Gradient_glxc5"]
 offsets = PackedFloat32Array(0.487013)
@@ -867,6 +868,9 @@ position = Vector2(3200, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="invisible_walls/invisible9"]
 position = Vector2(2242, 78)
 shape = SubResource("CircleShape2D_l4khp")
+
+[node name="AudioHandler" type="Node2D" parent="."]
+script = ExtResource("10_qiers")
 
 [editable path="plans/floor plans/floor2"]
 [editable path="plans/floor plans/floor3"]
