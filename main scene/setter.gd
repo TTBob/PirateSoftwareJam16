@@ -1,3 +1,4 @@
+@icon("res://icons/16x16/camera_free.png")
 extends Node2D
 
 @export var camera_zoom:Array = [
@@ -11,7 +12,7 @@ extends Node2D
 @onready var queue:Array = []
 @onready var chosen_position:Vector2
 @onready var camera_ref = %"main camera"
-@onready var player_ref = $"../CharacterBody2D"
+@onready var player_ref = %CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

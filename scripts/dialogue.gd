@@ -1,0 +1,6 @@
+@icon("res://icons/16x16/exclamation.png")
+extends Node2D
+
+
+# DIALOGUE IS IN CHILD OF MAIN CAMERA
+# DUE TO CAM TELEPORTATION, WE NEED TO MAKE DIALOGUE A CHILD NODE

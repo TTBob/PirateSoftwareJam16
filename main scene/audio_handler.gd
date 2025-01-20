@@ -1,3 +1,4 @@
+@icon("res://icons/16x16/music.png")
 extends Node2D
 
 func _ready():

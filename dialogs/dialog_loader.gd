@@ -1,3 +1,5 @@
+
+@icon("res://icons/16x16/dialogue_page.png")
 extends Node
 
 

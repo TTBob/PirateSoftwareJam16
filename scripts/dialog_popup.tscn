@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://cefnyw8e5wfq2"]
+
+[ext_resource type="Script" path="res://scripts/dialog_popup.gd" id="1_wopln"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i5awa"]
+line_spacing = 4.0
+font_size = 25
+
+[node name="DialogPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wopln")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -200.0
+offset_right = 350.0
+offset_bottom = 200.0
+label_settings = SubResource("LabelSettings_i5awa")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="Label"]
+wait_time = 0.03
+
+[node name="ColorRect" type="ColorRect" parent="Label"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_top = -25.0
+offset_right = 375.0
+offset_bottom = 150.0
+grow_horizontal = 2
+color = Color(0.49, 0.49, 0.49, 1)

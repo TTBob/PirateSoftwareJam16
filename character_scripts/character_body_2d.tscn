@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dee7j1gdlg4v6"]
 
-[ext_resource type="Script" path="res://character_body_2d.gd" id="1_t8v76"]
+[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_t8v76"]
 [ext_resource type="Texture2D" uid="uid://cgi8cix8cp438" path="res://dialogs/PullSwitch1.png" id="2_cihu5"]
-[ext_resource type="Texture2D" uid="uid://cj3vyrqgq7t53" path="res://icon.svg" id="3_nkqsa"]
+[ext_resource type="Texture2D" uid="uid://cj3vyrqgq7t53" path="res://scripts/icon.svg" id="3_nkqsa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qs5e"]
 size = Vector2(126, 128)
