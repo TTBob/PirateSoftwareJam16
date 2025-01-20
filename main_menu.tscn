@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://1364x0cs1sn8"]
+[gd_scene load_steps=10 format=3 uid="uid://1364x0cs1sn8"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_i7607"]
 [ext_resource type="Script" path="res://start_button.gd" id="2_tvf2n"]
 [ext_resource type="Script" path="res://settings_button.gd" id="3_i68pu"]
 [ext_resource type="Script" path="res://credits_button.gd" id="4_latp7"]
 [ext_resource type="Script" path="res://quit_button.gd" id="5_13i1m"]
+[ext_resource type="Script" path="res://volume_slider.gd" id="6_mlam7"]
 [ext_resource type="Script" path="res://back_button.gd" id="6_ve6e8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_37xyb"]
@@ -133,6 +134,7 @@ horizontal_alignment = 1
 
 [node name="Settings" type="Control" parent="."]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1200.0
@@ -157,7 +159,8 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.03
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 95
+theme_override_constants/margin_bottom = 360
 
 [node name="GridContainer" type="GridContainer" parent="Settings/HBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -166,8 +169,10 @@ columns = 2
 
 [node name="Label" type="Label" parent="Settings/HBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 text = "Some first setting"
 label_settings = SubResource("LabelSettings_r3cdt")
+vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Settings/HBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
@@ -175,19 +180,26 @@ size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="Settings/HBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "Some second setting"
+size_flags_vertical = 3
+text = "Some second setting     "
 label_settings = SubResource("LabelSettings_r3cdt")
+vertical_alignment = 1
 
 [node name="Button2" type="Button" parent="Settings/HBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 
 [node name="Label3" type="Label" parent="Settings/HBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "A slider setting"
+size_flags_vertical = 3
+text = "Music volume"
 label_settings = SubResource("LabelSettings_r3cdt")
+vertical_alignment = 1
 
 [node name="HSlider" type="HSlider" parent="Settings/HBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
+size_flags_vertical = 1
+value = 100.0
+script = ExtResource("6_mlam7")
 
 [node name="VSeparator" type="VSeparator" parent="Settings/HBoxContainer"]
 self_modulate = Color(1, 1, 1, 0)
@@ -205,6 +217,7 @@ script = ExtResource("6_ve6e8")
 
 [node name="Credits" type="Control" parent="."]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1200.0
