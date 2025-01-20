@@ -1,8 +1,5 @@
 {
 	"1" : "this is the first piece of text to display",
 	"2" : "this is the second piece of text to display after a space bar press",
-	"3" : {
-		"3.1" : "this is an attempt at making nested json hierarchy",
-		"3.2" : "this is the other attempt at making nested json"
-	}
+	"3" : "please work."
 }
