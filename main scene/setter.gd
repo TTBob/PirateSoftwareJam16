@@ -10,7 +10,7 @@ extends Node2D
 	]
 @onready var queue:Array = []
 @onready var chosen_position:Vector2
-@onready var camera_ref = %Main_camera
+@onready var camera_ref = %"main camera"
 @onready var player_ref = $"../CharacterBody2D"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,10 +1,886 @@
-[gd_scene load_steps=3 format=3 uid="uid://heltbvr0mbgf"]
+[gd_scene load_steps=47 format=3 uid="uid://heltbvr0mbgf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_7b6t8"]
+[ext_resource type="PackedScene" uid="uid://ctr37rs2qv0yu" path="res://floors/floor.tscn" id="2_cme58"]
 [ext_resource type="Script" path="res://dialogs/dialog_loader.gd" id="2_tbrbs"]
+[ext_resource type="PackedScene" uid="uid://cyqk3anuh7njt" path="res://camera_area_setter/camera_setter.tscn" id="3_bi25x"]
+[ext_resource type="PackedScene" uid="uid://cq3bm2pboix7i" path="res://camera_area_setter/camera_blueprint.tscn" id="4_ngp18"]
+[ext_resource type="Script" path="res://main scene/setter.gd" id="4_v2h37"]
+[ext_resource type="PackedScene" uid="uid://crlgxhn2l5o4o" path="res://interactable_area/item.tscn" id="5_ef3xn"]
+[ext_resource type="PackedScene" uid="uid://dee7j1gdlg4v6" path="res://character_scripts/character_body_2d.tscn" id="7_6ibol"]
+[ext_resource type="PackedScene" uid="uid://cefnyw8e5wfq2" path="res://dialog_popup.tscn" id="8_rt1we"]
+
+[sub_resource type="Gradient" id="Gradient_glxc5"]
+offsets = PackedFloat32Array(0.487013)
+colors = PackedColorArray(0.35886, 0.372639, 0.15993, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kh4u3"]
+gradient = SubResource("Gradient_glxc5")
+
+[sub_resource type="Gradient" id="Gradient_p1s2t"]
+offsets = PackedFloat32Array(0.0454545)
+colors = PackedColorArray(0, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gfrhx"]
+gradient = SubResource("Gradient_p1s2t")
+
+[sub_resource type="Gradient" id="Gradient_6v5b0"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6pc5q"]
+gradient = SubResource("Gradient_6v5b0")
+
+[sub_resource type="Gradient" id="Gradient_vg2p3"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1y2lo"]
+gradient = SubResource("Gradient_vg2p3")
+
+[sub_resource type="Gradient" id="Gradient_pudvy"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5gm12"]
+gradient = SubResource("Gradient_pudvy")
+
+[sub_resource type="Gradient" id="Gradient_eraqq"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ddg3p"]
+gradient = SubResource("Gradient_eraqq")
+
+[sub_resource type="Gradient" id="Gradient_8dyyy"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uh5nv"]
+gradient = SubResource("Gradient_8dyyy")
+
+[sub_resource type="Gradient" id="Gradient_mwra5"]
+offsets = PackedFloat32Array(0.461039)
+colors = PackedColorArray(0.783673, 0.570997, 0.408833, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xb61m"]
+gradient = SubResource("Gradient_mwra5")
+
+[sub_resource type="Gradient" id="Gradient_pulwt"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.693036, 0.500875, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wx0rl"]
+gradient = SubResource("Gradient_pulwt")
+
+[sub_resource type="Gradient" id="Gradient_r7s4d"]
+offsets = PackedFloat32Array(0.948052)
+colors = PackedColorArray(0.454524, 0.454524, 0.454524, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8vtbc"]
+gradient = SubResource("Gradient_r7s4d")
+
+[sub_resource type="Gradient" id="Gradient_ou88j"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1looa"]
+gradient = SubResource("Gradient_ou88j")
+
+[sub_resource type="Gradient" id="Gradient_k84ws"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.28914, 0.704175, 0.62941, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0hw5a"]
+gradient = SubResource("Gradient_k84ws")
+
+[sub_resource type="Gradient" id="Gradient_mruwr"]
+offsets = PackedFloat32Array(0.577922)
+colors = PackedColorArray(0.857731, 0.540632, 0.142114, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6m7lr"]
+gradient = SubResource("Gradient_mruwr")
+
+[sub_resource type="Gradient" id="Gradient_nlx0s"]
+offsets = PackedFloat32Array(0, 0.0180723, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.945783, 0.945783, 0.945783, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3m4mg"]
+gradient = SubResource("Gradient_nlx0s")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysgc8"]
+size = Vector2(43.9606, 0.460431)
+
+[sub_resource type="Gradient" id="Gradient_284mp"]
+offsets = PackedFloat32Array(0.0120482)
+colors = PackedColorArray(0.431126, 0.489586, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gvliv"]
+gradient = SubResource("Gradient_284mp")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7vue"]
+size = Vector2(70.4448, 0.460431)
+
+[sub_resource type="Gradient" id="Gradient_bg7jd"]
+offsets = PackedFloat32Array(0.025974)
+colors = PackedColorArray(0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xk0kk"]
+gradient = SubResource("Gradient_bg7jd")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84ft5"]
+size = Vector2(303.981, 37.3216)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhuom"]
+size = Vector2(306, 37.9688)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l4khp"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_7b6t8")
 
-[node name="dialog_loader" type="Node" parent="."]
+[node name="plans" type="Node2D" parent="."]
+
+[node name="background" type="Node2D" parent="plans"]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="plans/background"]
+position = Vector2(1280, -64)
+scale = Vector2(2.5, 360)
+texture = SubResource("GradientTexture1D_kh4u3")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="plans/background"]
+position = Vector2(2.86102e-06, 0.125)
+scale = Vector2(2.5, 358.25)
+texture = SubResource("GradientTexture1D_gfrhx")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="plans/background"]
+position = Vector2(640, -64.0625)
+scale = Vector2(2.5, 360.125)
+texture = SubResource("GradientTexture1D_6pc5q")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="plans/background"]
+position = Vector2(1920, -64)
+scale = Vector2(2.5, 360)
+texture = SubResource("GradientTexture1D_1y2lo")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="plans/background"]
+position = Vector2(2560, -64)
+scale = Vector2(2.5, 360)
+texture = SubResource("GradientTexture1D_5gm12")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="plans/background"]
+position = Vector2(3200, -64)
+scale = Vector2(2.5, 360)
+texture = SubResource("GradientTexture1D_ddg3p")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="plans/background"]
+position = Vector2(3840, -64)
+scale = Vector2(2.5, 360)
+texture = SubResource("GradientTexture1D_uh5nv")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D8" type="Sprite2D" parent="plans/background"]
+position = Vector2(4480, -64)
+scale = Vector2(2.5, 360)
+texture = SubResource("GradientTexture1D_xb61m")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D9" type="Sprite2D" parent="plans/background"]
+position = Vector2(5760, 0.125)
+scale = Vector2(2.5, 360)
+texture = SubResource("GradientTexture1D_wx0rl")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D10" type="Sprite2D" parent="plans/background"]
+position = Vector2(1280, 296)
+scale = Vector2(2.5, 360)
+texture = SubResource("GradientTexture1D_8vtbc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D11" type="Sprite2D" parent="plans/background"]
+position = Vector2(1920, 296)
+scale = Vector2(2.5, 360)
+texture = SubResource("GradientTexture1D_1looa")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D12" type="Sprite2D" parent="plans/background"]
+position = Vector2(3200, 296)
+scale = Vector2(2.5, 360)
+texture = SubResource("GradientTexture1D_8vtbc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D13" type="Sprite2D" parent="plans/background"]
+position = Vector2(5120, -64)
+scale = Vector2(2.5, 360)
+texture = SubResource("GradientTexture1D_0hw5a")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D14" type="Sprite2D" parent="plans/background"]
+position = Vector2(3840, -424)
+scale = Vector2(2.5, 360)
+texture = SubResource("GradientTexture1D_6m7lr")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D15" type="Sprite2D" parent="plans/background"]
+position = Vector2(4480, 296)
+scale = Vector2(2.5, 360)
+texture = SubResource("GradientTexture1D_8vtbc")
+metadata/_edit_lock_ = true
+
+[node name="floor plans" type="Node2D" parent="plans"]
+
+[node name="floor" parent="plans/floor plans" instance=ExtResource("2_cme58")]
+position = Vector2(6, 167)
+scale = Vector2(9.087, 78.949)
+
+[node name="floor2" parent="plans/floor plans" instance=ExtResource("2_cme58")]
+position = Vector2(258, 131)
+rotation = -0.331613
+scale = Vector2(8.59, 74.63)
+
+[node name="Sprite2D" parent="plans/floor plans/floor2" index="0"]
+position = Vector2(-13.7534, 3.72529e-09)
+scale = Vector2(0.173802, 0.460432)
+texture = SubResource("GradientTexture1D_3m4mg")
+
+[node name="CollisionShape2D" parent="plans/floor plans/floor2" index="1"]
+position = Vector2(-14.091, 0)
+shape = SubResource("RectangleShape2D_ysgc8")
+
+[node name="floor3" parent="plans/floor plans" instance=ExtResource("2_cme58")]
+position = Vector2(647, 99)
+scale = Vector2(9.087, 78.949)
+
+[node name="Sprite2D" parent="plans/floor plans/floor3" index="0"]
+position = Vector2(-0.777613, 0.00111033)
+scale = Vector2(0.275175, 0.458211)
+texture = SubResource("GradientTexture1D_gvliv")
+
+[node name="CollisionShape2D" parent="plans/floor plans/floor3" index="1"]
+position = Vector2(-0.777603, 0)
+shape = SubResource("RectangleShape2D_v7vue")
+
+[node name="floor6" parent="plans/floor plans" instance=ExtResource("2_cme58")]
+position = Vector2(2567, 99)
+scale = Vector2(9.087, 78.949)
+
+[node name="Sprite2D" parent="plans/floor plans/floor6" index="0"]
+position = Vector2(-0.777613, 0.00111033)
+scale = Vector2(0.275175, 0.458211)
+texture = SubResource("GradientTexture1D_gvliv")
+
+[node name="CollisionShape2D" parent="plans/floor plans/floor6" index="1"]
+position = Vector2(-0.777603, 0)
+shape = SubResource("RectangleShape2D_v7vue")
+
+[node name="floor8" parent="plans/floor plans" instance=ExtResource("2_cme58")]
+position = Vector2(3847, 99)
+scale = Vector2(9.087, 78.949)
+
+[node name="Sprite2D" parent="plans/floor plans/floor8" index="0"]
+position = Vector2(-0.777613, 0.00111033)
+scale = Vector2(0.275175, 0.458211)
+texture = SubResource("GradientTexture1D_gvliv")
+
+[node name="CollisionShape2D" parent="plans/floor plans/floor8" index="1"]
+position = Vector2(-0.777603, 0)
+shape = SubResource("RectangleShape2D_v7vue")
+
+[node name="floor10" parent="plans/floor plans" instance=ExtResource("2_cme58")]
+position = Vector2(5127, 99)
+scale = Vector2(9.087, 78.949)
+
+[node name="Sprite2D" parent="plans/floor plans/floor10" index="0"]
+position = Vector2(-0.777613, 0.00111033)
+scale = Vector2(0.275175, 0.458211)
+texture = SubResource("GradientTexture1D_gvliv")
+
+[node name="CollisionShape2D" parent="plans/floor plans/floor10" index="1"]
+position = Vector2(-0.777603, 0)
+shape = SubResource("RectangleShape2D_v7vue")
+
+[node name="floor11" parent="plans/floor plans" instance=ExtResource("2_cme58")]
+position = Vector2(5766, 167)
+scale = Vector2(9.087, 78.949)
+
+[node name="floor12" parent="plans/floor plans" instance=ExtResource("2_cme58")]
+position = Vector2(5722, 198)
+rotation = 0.331613
+scale = Vector2(8.59, 74.63)
+
+[node name="Sprite2D" parent="plans/floor plans/floor12" index="0"]
+position = Vector2(-13.7534, 3.72529e-09)
+scale = Vector2(0.173802, 0.460432)
+texture = SubResource("GradientTexture1D_3m4mg")
+
+[node name="CollisionShape2D" parent="plans/floor plans/floor12" index="1"]
+position = Vector2(-14.091, 0)
+shape = SubResource("RectangleShape2D_ysgc8")
+
+[node name="broken_floor_plans" type="Node2D" parent="plans/floor plans"]
+
+[node name="broken_floor" type="StaticBody2D" parent="plans/floor plans/broken_floor_plans"]
+
+[node name="Sprite2D" type="Sprite2D" parent="plans/floor plans/broken_floor_plans/broken_floor"]
+position = Vector2(1112.18, 99.401)
+rotation = -3.14159
+scale = Vector2(1.18887, 36.802)
+texture = SubResource("GradientTexture1D_xk0kk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plans/floor plans/broken_floor_plans/broken_floor"]
+position = Vector2(1112.01, 99.6501)
+shape = SubResource("RectangleShape2D_84ft5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plans/floor plans/broken_floor_plans/broken_floor"]
+position = Vector2(1446.99, 99.4957)
+rotation = -3.14159
+scale = Vector2(1.19523, 36.9914)
+texture = SubResource("GradientTexture1D_xk0kk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="plans/floor plans/broken_floor_plans/broken_floor"]
+position = Vector2(1447, 99.9688)
+shape = SubResource("RectangleShape2D_xhuom")
+
+[node name="broken_floor2" type="StaticBody2D" parent="plans/floor plans/broken_floor_plans"]
+position = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="plans/floor plans/broken_floor_plans/broken_floor2"]
+position = Vector2(1112.18, 99.401)
+rotation = -3.14159
+scale = Vector2(1.18887, 36.802)
+texture = SubResource("GradientTexture1D_xk0kk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plans/floor plans/broken_floor_plans/broken_floor2"]
+position = Vector2(1112.01, 99.6286)
+shape = SubResource("RectangleShape2D_84ft5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plans/floor plans/broken_floor_plans/broken_floor2"]
+position = Vector2(1446.99, 99.4957)
+rotation = -3.14159
+scale = Vector2(1.19523, 36.9914)
+texture = SubResource("GradientTexture1D_xk0kk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="plans/floor plans/broken_floor_plans/broken_floor2"]
+position = Vector2(1447, 99.9375)
+shape = SubResource("RectangleShape2D_xhuom")
+
+[node name="broken_floor3" type="StaticBody2D" parent="plans/floor plans/broken_floor_plans"]
+position = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="plans/floor plans/broken_floor_plans/broken_floor3"]
+position = Vector2(1112.18, 99.401)
+rotation = -3.14159
+scale = Vector2(1.18887, 36.802)
+texture = SubResource("GradientTexture1D_xk0kk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plans/floor plans/broken_floor_plans/broken_floor3"]
+position = Vector2(1112.01, 99.6608)
+shape = SubResource("RectangleShape2D_84ft5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plans/floor plans/broken_floor_plans/broken_floor3"]
+position = Vector2(1446.99, 99.4957)
+rotation = -3.14159
+scale = Vector2(1.19523, 36.9914)
+texture = SubResource("GradientTexture1D_xk0kk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="plans/floor plans/broken_floor_plans/broken_floor3"]
+position = Vector2(1447, 99.9844)
+shape = SubResource("RectangleShape2D_xhuom")
+
+[node name="broken_floor4" type="StaticBody2D" parent="plans/floor plans/broken_floor_plans"]
+position = Vector2(3200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="plans/floor plans/broken_floor_plans/broken_floor4"]
+position = Vector2(1112.18, 99.401)
+rotation = -3.14159
+scale = Vector2(1.18887, 36.802)
+texture = SubResource("GradientTexture1D_xk0kk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plans/floor plans/broken_floor_plans/broken_floor4"]
+position = Vector2(1112, 99.5858)
+shape = SubResource("RectangleShape2D_84ft5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plans/floor plans/broken_floor_plans/broken_floor4"]
+position = Vector2(1446.99, 99.4957)
+rotation = -3.14159
+scale = Vector2(1.19523, 36.9914)
+texture = SubResource("GradientTexture1D_xk0kk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="plans/floor plans/broken_floor_plans/broken_floor4"]
+position = Vector2(1447, 99.875)
+shape = SubResource("RectangleShape2D_xhuom")
+
+[node name="broken_floor5" type="StaticBody2D" parent="plans/floor plans/broken_floor_plans"]
+position = Vector2(2560, -351.985)
+
+[node name="Sprite2D" type="Sprite2D" parent="plans/floor plans/broken_floor_plans/broken_floor5"]
+position = Vector2(1112.18, 99.401)
+rotation = -3.14159
+scale = Vector2(1.18887, 36.802)
+texture = SubResource("GradientTexture1D_xk0kk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plans/floor plans/broken_floor_plans/broken_floor5"]
+position = Vector2(1112.01, 99.6715)
+shape = SubResource("RectangleShape2D_84ft5")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="plans/floor plans/broken_floor_plans/broken_floor5"]
+position = Vector2(1446.99, 99.4957)
+rotation = -3.14159
+scale = Vector2(1.19523, 36.9914)
+texture = SubResource("GradientTexture1D_xk0kk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="plans/floor plans/broken_floor_plans/broken_floor5"]
+position = Vector2(1447, 100)
+shape = SubResource("RectangleShape2D_xhuom")
+metadata/_edit_lock_ = true
+
+[node name="floor4" parent="plans/floor plans" instance=ExtResource("2_cme58")]
+position = Vector2(1284, 468)
+scale = Vector2(9.087, 78.949)
+
+[node name="floor5" parent="plans/floor plans" instance=ExtResource("2_cme58")]
+position = Vector2(1929, 468)
+scale = Vector2(9.087, 78.949)
+
+[node name="floor7" parent="plans/floor plans" instance=ExtResource("2_cme58")]
+position = Vector2(3209, 468)
+scale = Vector2(9.087, 78.949)
+
+[node name="floor9" parent="plans/floor plans" instance=ExtResource("2_cme58")]
+position = Vector2(4489, 468)
+scale = Vector2(9.087, 78.949)
+
+[node name="walls" type="Node2D" parent="plans"]
+
+[node name="wall" parent="plans/walls" instance=ExtResource("2_cme58")]
+position = Vector2(6090, 64)
+rotation = 1.5708
+scale = Vector2(9.087, 78.949)
+
+[node name="wall2" parent="plans/walls" instance=ExtResource("2_cme58")]
+position = Vector2(322, -347)
+rotation = 1.5708
+scale = Vector2(9.087, 78.949)
+
+[node name="wall3" parent="plans/walls" instance=ExtResource("2_cme58")]
+position = Vector2(962, -347)
+rotation = 1.5708
+scale = Vector2(9.087, 78.949)
+
+[node name="wall4" parent="plans/walls" instance=ExtResource("2_cme58")]
+position = Vector2(1602, -347)
+rotation = 1.5708
+scale = Vector2(9.087, 78.949)
+
+[node name="wall5" parent="plans/walls" instance=ExtResource("2_cme58")]
+position = Vector2(3522, -347)
+rotation = 1.5708
+scale = Vector2(9.087, 78.949)
+
+[node name="wall6" parent="plans/walls" instance=ExtResource("2_cme58")]
+position = Vector2(2882, -347)
+rotation = 1.5708
+scale = Vector2(9.087, 78.949)
+
+[node name="wall7" parent="plans/walls" instance=ExtResource("2_cme58")]
+position = Vector2(2242, -347)
+rotation = 1.5708
+scale = Vector2(9.087, 78.949)
+
+[node name="wall8" parent="plans/walls" instance=ExtResource("2_cme58")]
+position = Vector2(4162, -347)
+rotation = 1.5708
+scale = Vector2(9.087, 78.949)
+
+[node name="wall9" parent="plans/walls" instance=ExtResource("2_cme58")]
+position = Vector2(4802, -347)
+rotation = 1.5708
+scale = Vector2(9.087, 78.949)
+
+[node name="wall10" parent="plans/walls" instance=ExtResource("2_cme58")]
+position = Vector2(5442, -347)
+rotation = 1.5708
+scale = Vector2(9.087, 78.949)
+
+[node name="foreground" type="Node2D" parent="plans"]
+
+[node name="main camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -20)
+offset = Vector2(0.08, 21.025)
+zoom = Vector2(1.8, 1.8)
+
+[node name="dialogue" type="Node2D" parent="main camera"]
+position = Vector2(0, 20)
+
+[node name="DialogPopup" parent="main camera/dialogue" instance=ExtResource("8_rt1we")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" parent="main camera/dialogue/DialogPopup" index="0"]
+z_index = 2
+offset_left = -175.0
+offset_top = 378.0
+offset_right = 525.0
+offset_bottom = 778.0
+scale = Vector2(0.5, 0.5)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" parent="main camera/dialogue/DialogPopup/Label" index="1"]
+metadata/_edit_lock_ = true
+
+[node name="dialog_loader" type="Node" parent="main camera/dialogue"]
 script = ExtResource("2_tbrbs")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("7_6ibol")]
+position = Vector2(62, 14)
+scale = Vector2(0.5, 0.5)
+
+[node name="Camera_setter" parent="." instance=ExtResource("3_bi25x")]
+unique_name_in_owner = true
+position = Vector2(-1039, -921)
+script = ExtResource("4_v2h37")
+
+[node name="1" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(1685, 836)
+camera_size = 1.8
+
+[node name="2" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(2325, 836)
+camera_size = 1.8
+
+[node name="3" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(2965, 836)
+camera_size = 1.8
+
+[node name="4" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(2319, 1190.18)
+
+[node name="5" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(2959, 1190.18)
+
+[node name="6" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(3605, 836)
+
+[node name="7" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(4245, 836)
+
+[node name="8" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(4885, 476)
+
+[node name="9" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(4885, 836)
+
+[node name="10" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(5525, 836)
+
+[node name="11" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(6165, 836)
+
+[node name="12" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(5525, 1190.18)
+
+[node name="13" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(6805, 886)
+
+[node name="14" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(1039, 901)
+camera_size = 1.8
+
+[node name="15" parent="Camera_setter" instance=ExtResource("4_ngp18")]
+position = Vector2(4245, 1190.18)
+
+[node name="teleporters" type="Node2D" parent="."]
+
+[node name="item" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(284, 53)
+action_value = 1
+action_value_2 = Vector2(302.97, 58)
+
+[node name="item2" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(910, 33)
+action_value_2 = Vector2(960, 37)
+
+[node name="item3" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(1529, 33)
+action_value = 3
+action_value_2 = Vector2(1579, 33)
+
+[node name="item4" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(1280, 44)
+rotation = 1.5708
+action_value = 4
+action_value_2 = Vector2(1283, 404)
+
+[node name="item5" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(1283, 404)
+rotation = 1.5708
+action_value_2 = Vector2(1280, 37)
+
+[node name="CollisionShape2D" parent="teleporters/item5" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" parent="teleporters/item5" index="2"]
+modulate = Color(1, 0.719486, 0.96336, 1)
+self_modulate = Color(1, 0, 0, 1)
+rotation = -1.5708
+metadata/_edit_lock_ = true
+
+[node name="item7" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(1920, 404)
+rotation = 1.5708
+action_value = 3
+action_value_2 = Vector2(1939, 37)
+
+[node name="CollisionShape2D" parent="teleporters/item7" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" parent="teleporters/item7" index="2"]
+modulate = Color(1, 0.719486, 0.96336, 1)
+self_modulate = Color(1, 0, 0, 1)
+rotation = -1.5708
+metadata/_edit_lock_ = true
+
+[node name="item8" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(2169, 33)
+action_value = 6
+action_value_2 = Vector2(2294, 33)
+
+[node name="item9" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(2809, 33)
+action_value = 7
+action_value_2 = Vector2(2859, 33)
+
+[node name="item10" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(3449, 33)
+action_value = 9
+action_value_2 = Vector2(3499, 33)
+
+[node name="item11" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(3200, 44)
+rotation = 1.5708
+action_value = 15
+action_value_2 = Vector2(3200, 404)
+
+[node name="item12" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(3200, 404)
+rotation = 1.5708
+action_value = 7
+action_value_2 = Vector2(3200, 33)
+
+[node name="CollisionShape2D" parent="teleporters/item12" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" parent="teleporters/item12" index="2"]
+modulate = Color(1, 0.719486, 0.96336, 1)
+self_modulate = Color(1, 0, 0, 1)
+rotation = -1.5708
+metadata/_edit_lock_ = true
+
+[node name="item13" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(4089, 33)
+action_value = 10
+action_value_2 = Vector2(4139, 33)
+
+[node name="item14" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(3840, 33)
+rotation = 1.5708
+action_value = 8
+action_value_2 = Vector2(3840, -325)
+
+[node name="CollisionShape2D" parent="teleporters/item14" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" parent="teleporters/item14" index="2"]
+modulate = Color(1, 0.719486, 0.96336, 1)
+self_modulate = Color(1, 0, 0, 1)
+rotation = -1.5708
+metadata/_edit_lock_ = true
+
+[node name="item15" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(3840, -310)
+rotation = 1.5708
+action_value = 9
+action_value_2 = Vector2(3840, 33)
+
+[node name="item16" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(4729, 33)
+action_value = 11
+action_value_2 = Vector2(4854, 33)
+
+[node name="item17" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(4480, 44)
+rotation = 1.5708
+action_value = 12
+action_value_2 = Vector2(4480, 404)
+
+[node name="item18" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(4480, 404)
+rotation = 1.5708
+action_value = 10
+action_value_2 = Vector2(4480, 33)
+
+[node name="CollisionShape2D" parent="teleporters/item18" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" parent="teleporters/item18" index="2"]
+modulate = Color(1, 0.719486, 0.96336, 1)
+self_modulate = Color(1, 0, 0, 1)
+rotation = -1.5708
+metadata/_edit_lock_ = true
+
+[node name="item19" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(5379, 33)
+action_value = 13
+action_value_2 = Vector2(5469, 33)
+
+[node name="item20" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(5487, 53)
+rotation = 3.14159
+action_value = 11
+action_value_2 = Vector2(5379, 33)
+
+[node name="item21" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(4214, 33)
+rotation = 3.14159
+action_value = 9
+action_value_2 = Vector2(4089, 33)
+
+[node name="item22" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(3574, 33)
+rotation = 3.14159
+action_value = 7
+action_value_2 = Vector2(3449, 33)
+
+[node name="item23" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(2934, 33)
+rotation = 3.14159
+action_value = 6
+action_value_2 = Vector2(2809, 33)
+
+[node name="item24" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(2294, 33)
+rotation = 3.14159
+action_value = 3
+action_value_2 = Vector2(2119, 33)
+
+[node name="item25" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(1654, 33)
+rotation = 3.14159
+action_value_2 = Vector2(1529, 33)
+
+[node name="item26" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(1014, 33)
+rotation = 3.14159
+action_value = 1
+action_value_2 = Vector2(910, 33)
+
+[node name="item27" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(374, 33)
+rotation = 3.14159
+action_value = 14
+action_value_2 = Vector2(284, 53)
+
+[node name="item28" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(1654, 404)
+rotation = 3.14159
+action_value = 9
+action_value_2 = Vector2(1529, 404)
+
+[node name="item29" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(4854, 33)
+rotation = 3.14159
+action_value = 10
+action_value_2 = Vector2(4679, 33)
+
+[node name="item6" parent="teleporters" instance=ExtResource("5_ef3xn")]
+position = Vector2(622, 26)
+action_index = 2
+action_value = 1
+action_name = "res://dialogs/json_test_file.json"
+action_value_2 = Vector2(1, 3)
+
+[node name="invisible_walls" type="Node2D" parent="."]
+
+[node name="invisible" type="StaticBody2D" parent="invisible_walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="invisible_walls/invisible"]
+position = Vector2(928, 70)
+shape = SubResource("CircleShape2D_l4khp")
+
+[node name="invisible2" type="StaticBody2D" parent="invisible_walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="invisible_walls/invisible2"]
+position = Vector2(1542, 42)
+shape = SubResource("CircleShape2D_l4khp")
+
+[node name="invisible3" type="StaticBody2D" parent="invisible_walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="invisible_walls/invisible3"]
+position = Vector2(1552, 435)
+shape = SubResource("CircleShape2D_l4khp")
+
+[node name="invisible4" type="StaticBody2D" parent="invisible_walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="invisible_walls/invisible4"]
+position = Vector2(2177, 43)
+shape = SubResource("CircleShape2D_l4khp")
+
+[node name="invisible5" type="StaticBody2D" parent="invisible_walls"]
+position = Vector2(640, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="invisible_walls/invisible5"]
+position = Vector2(2180, 43)
+shape = SubResource("CircleShape2D_l4khp")
+
+[node name="invisible6" type="StaticBody2D" parent="invisible_walls"]
+position = Vector2(1280, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="invisible_walls/invisible6"]
+position = Vector2(2241, 77)
+shape = SubResource("CircleShape2D_l4khp")
+
+[node name="invisible7" type="StaticBody2D" parent="invisible_walls"]
+position = Vector2(1920, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="invisible_walls/invisible7"]
+position = Vector2(2237, 76)
+shape = SubResource("CircleShape2D_l4khp")
+
+[node name="invisible8" type="StaticBody2D" parent="invisible_walls"]
+position = Vector2(2560, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="invisible_walls/invisible8"]
+position = Vector2(2239, 73)
+shape = SubResource("CircleShape2D_l4khp")
+
+[node name="invisible9" type="StaticBody2D" parent="invisible_walls"]
+position = Vector2(3200, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="invisible_walls/invisible9"]
+position = Vector2(2242, 78)
+shape = SubResource("CircleShape2D_l4khp")
+
+[editable path="plans/floor plans/floor2"]
+[editable path="plans/floor plans/floor3"]
+[editable path="plans/floor plans/floor6"]
+[editable path="plans/floor plans/floor8"]
+[editable path="plans/floor plans/floor10"]
+[editable path="plans/floor plans/floor11"]
+[editable path="plans/floor plans/floor12"]
+[editable path="plans/walls/wall2"]
+[editable path="main camera/dialogue/DialogPopup"]
+[editable path="Camera_setter/1"]
+[editable path="Camera_setter/14"]
+[editable path="teleporters/item5"]
+[editable path="teleporters/item7"]
+[editable path="teleporters/item12"]
+[editable path="teleporters/item14"]
+[editable path="teleporters/item18"]

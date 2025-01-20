@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cnlnjhfk6bb6m" path="res://art/noun-pointer-7365.png" id="2_1redk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ph34x"]
+radius = 26.0768
 
 [sub_resource type="Animation" id="Animation_f8qe6"]
 resource_name = "on"
@@ -26,8 +27,8 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4, -33)
-rotation = -3.14159
+position = Vector2(-20, 0)
+rotation = 1.5708
 scale = Vector2(0.035, 0.035)
 texture = ExtResource("2_1redk")
 

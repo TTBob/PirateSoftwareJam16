@@ -11,10 +11,9 @@ func _ready() -> void:
 
 func _process(_delta):
 	if active:
-		label.offset_top = lerp(label.offset_top, -200.0, 0.2)
-	else:
 		label.offset_top = lerp(label.offset_top, 50.0, 0.2)
-
+	else:
+		label.offset_top = lerp(label.offset_top, 300.0, 0.2)
 func _input(_e):
 	if Input.is_action_just_pressed("dialog_next") and active:
 		if sentences_left[0].length() != 0:
@@ -28,14 +27,18 @@ func _input(_e):
 				return
 			label.text = ""
 			timer.start()
-
+	if Input.is_action_just_pressed("ui_cancel") and active:
+		active = false
+	
+func dictionary_to_array(dictionary:Dictionary) -> Array[String]:
+	var empty_array_string: Array[String]
+	var value:Array = dictionary.values()
+	empty_array_string.assign(value)
+	return empty_array_string
 func begin_dialog(dialog):
 	# Get information from parser
 	active = true
-	sentences_left = [
-		"This is a dialogue window. It handles dialogs by recieving dialog commands from a parser and sequences through them.",
-		"This is the second part of this dialogue sequence. Notice how I had to press SPACE to toggle to this next one, which will leave the players plenty of time to read!"
-	]
+	sentences_left = dialog
 	label.text = ""
 	timer.start()
 	
