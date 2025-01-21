@@ -32,11 +32,12 @@ enum PickUpState {ON,OFF}
 @onready var equipped_item:String
 @onready var animation_ref = $anims/Sprite2D
 @onready var camera_manage_ref = %Camera_setter
+@onready var camera = %"main camera"
 @onready var dialogue_ref = %DialogPopup
 @onready var dialog_load_ref = %dialog_loader
 
 var action_signal:bool = true
-var is_dialogue_on:bool = false
+var is_screen_busy:bool = false
 var is_dashing:bool = false
 var base_speed = speed
 var is_reversing_anim:bool = true
@@ -62,13 +63,13 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	if dialogue_ref.active:
-		is_dialogue_on = true
+	if dialogue_ref.active or camera.camera_transitioning:
+		is_screen_busy = true
 	else:
-		is_dialogue_on = false
-	if Input.is_action_just_pressed(direction_input["dash"]) and !is_dialogue_on:
+		is_screen_busy = false
+	if Input.is_action_just_pressed(direction_input["dash"]) and !is_screen_busy:
 		is_dashing = true
-	if Input.is_action_just_released(direction_input["dash"]) and !is_dialogue_on:
+	if Input.is_action_just_released(direction_input["dash"]) and !is_screen_busy:
 		is_dashing = false
 	
 	
@@ -79,7 +80,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis(direction_input["left"],direction_input["right"])
-	if direction and !is_dialogue_on:
+	if direction and !is_screen_busy:
 		
 		velocity.x = move_toward(velocity.x, direction * speed, momentum["initial_velocity"])
 		animate("walking")
@@ -95,10 +96,10 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	
-	if Input.is_action_just_pressed("ui_accept") and not is_interact and !is_dialogue_on:
+	if Input.is_action_just_pressed("ui_accept") and not is_interact and !is_screen_busy:
 		is_interact = true
 		
-	if not Input.is_action_just_pressed("ui_accept") and !is_dialogue_on:
+	if not Input.is_action_just_pressed("ui_accept") and !is_screen_busy:
 		is_interact = false
 	
 	if is_busy and action_signal:
@@ -109,11 +110,14 @@ func _process(delta: float) -> void:
 			is_hand_full = false
 			
 		elif action_index == 1:
-			camera_manage_ref.teleport_to_area(action_value[action_index],action_second_parameter)
+			camera.transition(action_string)
+			$timers/camera_transition_timing.start()
+			
 		
 		elif action_index == 2:
 			var all_dialogue:Dictionary = dialog_load_ref.load_json(action_string)
 			var dialogue_container:Array[String]
+			
 			for text in range(action_second_parameter.x, action_second_parameter.y+1):
 				dialogue_container.append(all_dialogue[str(text)])
 			dialogue_ref.begin_dialog(dialogue_container)
@@ -127,3 +131,7 @@ func _process(delta: float) -> void:
 				
 		is_busy = false
 		action_signal = true
+
+
+func _on_camera_transition_timing_timeout() -> void:
+	camera_manage_ref.teleport_to_area(action_value[action_index],action_second_parameter)
