@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://cefnyw8e5wfq2"]
+
+[ext_resource type="Script" path="res://dialogs/dialog_manager.gd" id="1_lxlm4"]
+[ext_resource type="Script" path="res://dialogs/dialog_popup.gd" id="1_wopln"]
+[ext_resource type="Script" path="res://temp_button.gd" id="2_g3fla"]
+[ext_resource type="Script" path="res://dialogs/dialog_loader.gd" id="4_4cl2y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i5awa"]
+line_spacing = 4.0
+font_size = 25
+
+[node name="DialogManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lxlm4")
+
+[node name="DialogPopup" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_wopln")
+
+[node name="Label" type="Label" parent="DialogPopup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 206.0
+offset_top = 408.0
+offset_right = 906.0
+offset_bottom = 808.0
+text = "This is a dialogue window. It handles dialogs by recieving dialog commands from a parser and sequences through them"
+label_settings = SubResource("LabelSettings_i5awa")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="DialogPopup/Label"]
+wait_time = 0.03
+
+[node name="ColorRect" type="ColorRect" parent="DialogPopup/Label"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_top = -25.0
+offset_right = 375.0
+offset_bottom = 150.0
+grow_horizontal = 2
+color = Color(0.49, 0.49, 0.49, 1)
+
+[node name="Button" type="Button" parent="DialogPopup"]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 133.0
+offset_right = 931.0
+offset_bottom = 164.0
+focus_mode = 0
+text = "trigger dialogue"
+script = ExtResource("2_g3fla")
+
+[node name="DialogLoader" type="Node" parent="."]
+script = ExtResource("4_4cl2y")
