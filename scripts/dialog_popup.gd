@@ -47,4 +47,5 @@ func next_character():
 	label.text += sentences_left[0][0]
 	sentences_left[0] = sentences_left[0].substr(1)
 	if sentences_left[0].length() == 0:
+		
 		timer.stop()

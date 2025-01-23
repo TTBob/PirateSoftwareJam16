@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://heltbvr0mbgf"]
+[gd_scene load_steps=60 format=3 uid="uid://heltbvr0mbgf"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_7b6t8"]
 [ext_resource type="Script" path="res://scripts/plans.gd" id="2_0xiiq"]
@@ -12,7 +12,10 @@
 [ext_resource type="Script" path="res://scripts/dialogue2.gd" id="6_5ygxi"]
 [ext_resource type="PackedScene" uid="uid://dee7j1gdlg4v6" path="res://character_scripts/character_body_2d.tscn" id="7_6ibol"]
 [ext_resource type="PackedScene" uid="uid://cefnyw8e5wfq2" path="res://scripts/dialog_popup.tscn" id="8_rt1we"]
+[ext_resource type="AudioStream" uid="uid://bmhwrqr2o0lhi" path="res://audio/open-and-closed-door-reverb-206833.mp3" id="9_lq2q0"]
+[ext_resource type="AudioStream" uid="uid://cq4mb1a6qldxs" path="res://audio/462598__eelke__boots-on-aluminum-ladder-01.wav" id="10_m154n"]
 [ext_resource type="Script" path="res://main scene/audio_handler.gd" id="10_qiers"]
+[ext_resource type="PackedScene" uid="uid://cmr6fuhy0vbkx" path="res://quests/quest_manager.tscn" id="11_usag3"]
 [ext_resource type="Script" path="res://scripts/interactables.gd" id="13_ch4l5"]
 [ext_resource type="Script" path="res://scripts/main_game,_ship_prototype.gd" id="13_yr2cy"]
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="14_4g8qj"]
@@ -143,6 +146,131 @@ size = Vector2(306, 37.9688)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l4khp"]
 
+[sub_resource type="Animation" id="Animation_giqp5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ajstw"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7b72e"]
+_data = {
+"RESET": SubResource("Animation_giqp5"),
+"fade_in": SubResource("Animation_ajstw")
+}
+
 [node name="game" type="Node2D"]
 script = ExtResource("1_7b6t8")
 
@@ -257,12 +385,12 @@ rotation = -0.331613
 scale = Vector2(8.59, 74.63)
 
 [node name="Sprite2D" parent="Main game/plans/floor plans/floor2" index="0"]
-position = Vector2(-13.7534, 3.72529e-09)
+position = Vector2(-13.3722, -0.169157)
 scale = Vector2(0.173802, 0.460432)
 texture = SubResource("GradientTexture1D_3m4mg")
 
 [node name="CollisionShape2D" parent="Main game/plans/floor plans/floor2" index="1"]
-position = Vector2(-14.091, 0)
+position = Vector2(-13.7098, -0.169157)
 shape = SubResource("RectangleShape2D_ysgc8")
 
 [node name="floor3" parent="Main game/plans/floor plans" instance=ExtResource("2_cme58")]
@@ -528,7 +656,7 @@ scale = Vector2(9.087, 78.949)
 [node name="invisible" type="StaticBody2D" parent="Main game/plans/invisible_walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Main game/plans/invisible_walls/invisible"]
-position = Vector2(928, 70)
+position = Vector2(926, 34)
 shape = SubResource("CircleShape2D_l4khp")
 
 [node name="invisible2" type="StaticBody2D" parent="Main game/plans/invisible_walls"]
@@ -546,7 +674,7 @@ shape = SubResource("CircleShape2D_l4khp")
 [node name="invisible4" type="StaticBody2D" parent="Main game/plans/invisible_walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Main game/plans/invisible_walls/invisible4"]
-position = Vector2(2177, 43)
+position = Vector2(2193, 15)
 shape = SubResource("CircleShape2D_l4khp")
 
 [node name="invisible5" type="StaticBody2D" parent="Main game/plans/invisible_walls"]
@@ -584,6 +712,12 @@ position = Vector2(3200, 0)
 position = Vector2(2242, 78)
 shape = SubResource("CircleShape2D_l4khp")
 
+[node name="invisible10" type="StaticBody2D" parent="Main game/plans/invisible_walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main game/plans/invisible_walls/invisible10"]
+position = Vector2(306, 12)
+shape = SubResource("CircleShape2D_l4khp")
+
 [node name="main camera" type="Camera2D" parent="Main game"]
 unique_name_in_owner = true
 position = Vector2(0, -20)
@@ -615,9 +749,37 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 script = ExtResource("2_tbrbs")
 
+[node name="ColorRect" type="ColorRect" parent="Main game/main camera"]
+visible = false
+z_index = 1
+offset_left = -349.0
+offset_top = -185.0
+offset_right = 357.0
+offset_bottom = 253.0
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="Main game/main camera/ColorRect"]
+wait_time = 4.0
+
+[node name="audios" type="Node2D" parent="Main game/main camera/ColorRect"]
+
+[node name="Door" type="AudioStreamPlayer" parent="Main game/main camera/ColorRect/audios"]
+stream = ExtResource("9_lq2q0")
+volume_db = -10.0
+
+[node name="ladder" type="AudioStreamPlayer" parent="Main game/main camera/ColorRect/audios"]
+stream = ExtResource("10_m154n")
+
+[node name="fading" type="AnimationPlayer" parent="Main game/main camera/ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_7b72e")
+}
+
+[node name="Quest_manager" parent="Main game/main camera" instance=ExtResource("11_usag3")]
+
 [node name="CharacterBody2D" parent="Main game" instance=ExtResource("7_6ibol")]
 unique_name_in_owner = true
-position = Vector2(62, 14)
+position = Vector2(117, 59)
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera_setter" parent="Main game" instance=ExtResource("3_bi25x")]
@@ -676,15 +838,19 @@ position = Vector2(4245, 1190.18)
 
 [node name="interactables" type="Node2D" parent="Main game"]
 script = ExtResource("13_ch4l5")
+metadata/_edit_lock_ = true
 
 [node name="item" parent="Main game/interactables" instance=ExtResource("5_ef3xn")]
 position = Vector2(284, 53)
 action_value = 1
-action_value_2 = Vector2(302.97, 58)
+action_name = "door"
+action_value_2 = Vector2(374, 58)
 
 [node name="item2" parent="Main game/interactables" instance=ExtResource("5_ef3xn")]
 position = Vector2(910, 33)
 action_value_2 = Vector2(960, 37)
+quest_condition = true
+quest_name = "The Fallen Mates"
 
 [node name="item3" parent="Main game/interactables" instance=ExtResource("5_ef3xn")]
 position = Vector2(1529, 33)
@@ -695,11 +861,13 @@ action_value_2 = Vector2(1579, 33)
 position = Vector2(1280, 44)
 rotation = 1.5708
 action_value = 4
+action_name = "ladder"
 action_value_2 = Vector2(1283, 404)
 
 [node name="item5" parent="Main game/interactables" instance=ExtResource("5_ef3xn")]
 position = Vector2(1283, 404)
 rotation = 1.5708
+action_name = "ladder"
 action_value_2 = Vector2(1280, 37)
 
 [node name="CollisionShape2D" parent="Main game/interactables/item5" index="0"]
@@ -715,6 +883,7 @@ metadata/_edit_lock_ = true
 position = Vector2(1920, 404)
 rotation = 1.5708
 action_value = 3
+action_name = "ladder"
 action_value_2 = Vector2(1939, 37)
 
 [node name="CollisionShape2D" parent="Main game/interactables/item7" index="0"]
@@ -866,12 +1035,6 @@ rotation = 3.14159
 action_value = 14
 action_value_2 = Vector2(284, 53)
 
-[node name="item28" parent="Main game/interactables" instance=ExtResource("5_ef3xn")]
-position = Vector2(1654, 404)
-rotation = 3.14159
-action_value = 9
-action_value_2 = Vector2(1529, 404)
-
 [node name="item29" parent="Main game/interactables" instance=ExtResource("5_ef3xn")]
 position = Vector2(4854, 33)
 rotation = 3.14159
@@ -884,12 +1047,22 @@ action_index = 2
 action_value = 1
 action_name = "res://dialogs/json_test_file.json"
 action_value_2 = Vector2(1, 3)
+tag = 234
+
+[node name="item30" parent="Main game/interactables" instance=ExtResource("5_ef3xn")]
+position = Vector2(1920, 44)
+rotation = 1.5708
+action_value = 5
+action_name = "ladder"
+action_value_2 = Vector2(1920, 404)
 
 [node name="AudioHandler" type="Node2D" parent="Main game"]
 script = ExtResource("10_qiers")
 
 [node name="dialogue (C)" type="Node2D" parent="Main game"]
 script = ExtResource("14_4g8qj")
+
+[connection signal="timeout" from="Main game/main camera/ColorRect/Timer" to="Main game/main camera" method="_on_timer_timeout"]
 
 [editable path="Main game/plans/floor plans/floor2"]
 [editable path="Main game/plans/floor plans/floor3"]

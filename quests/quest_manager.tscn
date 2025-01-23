@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmr6fuhy0vbkx"]
+
+[ext_resource type="Script" path="res://quests/quest_manager.gd" id="1_qf6h7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yxjvm"]
+font_color = Color(1, 0, 1, 1)
+
+[node name="Quest_manager" type="Node2D"]
+script = ExtResource("1_qf6h7")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+text = "bhjbbn"
+label_settings = SubResource("LabelSettings_yxjvm")
+
+[node name="ColorRect" type="ColorRect" parent="Label"]
+z_index = -1
+offset_right = 118.0
+offset_bottom = 45.0
