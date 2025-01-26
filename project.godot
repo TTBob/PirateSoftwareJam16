@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="PirateSoftwareJam16-2"
-run/main_scene="res://scripts/main_menu.tscn"
+run/main_scene="res://scripts/main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://scripts/icon.svg"
 
 [audio]
 
 buses/default_bus_layout="res://scripts/default_bus_layout.tres"
+
+[autoload]
+
+progress="*res://scripts/progress.gd"
 
 [input]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://heltbvr0mbgf"]
+[gd_scene load_steps=60 format=3 uid="uid://heltbvr0mbgf"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_7b6t8"]
 [ext_resource type="Script" path="res://scripts/plans.gd" id="2_0xiiq"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cq3bm2pboix7i" path="res://camera_area_setter/camera_blueprint.tscn" id="4_ngp18"]
 [ext_resource type="Script" path="res://scripts/main_camera.gd" id="4_qekus"]
 [ext_resource type="Script" path="res://main scene/setter.gd" id="4_v2h37"]
-[ext_resource type="Script" path="res://scripts/glowing_objects.gd" id="5_aca6v"]
 [ext_resource type="PackedScene" uid="uid://crlgxhn2l5o4o" path="res://interactable_area/item.tscn" id="5_ef3xn"]
 [ext_resource type="Script" path="res://scripts/dialogue2.gd" id="6_5ygxi"]
 [ext_resource type="PackedScene" uid="uid://dee7j1gdlg4v6" path="res://character_scripts/character_body_2d.tscn" id="7_6ibol"]
@@ -146,11 +145,6 @@ size = Vector2(303.981, 37.3216)
 size = Vector2(306, 37.9688)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l4khp"]
-
-[sub_resource type="Gradient" id="Gradient_x8c4t"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_1plhx"]
-gradient = SubResource("Gradient_x8c4t")
 
 [sub_resource type="Animation" id="Animation_giqp5"]
 length = 0.001
@@ -724,31 +718,6 @@ shape = SubResource("CircleShape2D_l4khp")
 position = Vector2(306, 12)
 shape = SubResource("CircleShape2D_l4khp")
 
-[node name="glowing objects" type="Node2D" parent="Main game/plans"]
-unique_name_in_owner = true
-script = ExtResource("5_aca6v")
-
-[node name="light" type="PointLight2D" parent="Main game/plans/glowing objects"]
-position = Vector2(1481, -70)
-rotation = 4.71239
-scale = Vector2(5.77114, 2.4345)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_1plhx")
-
-[node name="light2" type="PointLight2D" parent="Main game/plans/glowing objects"]
-position = Vector2(1310, -105)
-rotation = 4.71239
-scale = Vector2(5.77114, 2.4345)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_1plhx")
-
-[node name="light3" type="PointLight2D" parent="Main game/plans/glowing objects"]
-position = Vector2(1144, -100)
-rotation = 4.71239
-scale = Vector2(5.77114, 2.4345)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_1plhx")
-
 [node name="main camera" type="Camera2D" parent="Main game"]
 unique_name_in_owner = true
 position = Vector2(0, -20)
@@ -807,13 +776,11 @@ libraries = {
 }
 
 [node name="Quest_manager" parent="Main game/main camera" instance=ExtResource("11_usag3")]
-position = Vector2(-55, -26)
 
 [node name="CharacterBody2D" parent="Main game" instance=ExtResource("7_6ibol")]
 unique_name_in_owner = true
-position = Vector2(1445, -193)
+position = Vector2(72, 29)
 scale = Vector2(0.5, 0.5)
-camera_settlement = 4
 
 [node name="Camera_setter" parent="Main game" instance=ExtResource("3_bi25x")]
 unique_name_in_owner = true
@@ -1089,14 +1056,6 @@ rotation = 1.5708
 action_value = 5
 action_name = "ladder"
 action_value_2 = Vector2(1920, 404)
-
-[node name="item28" parent="Main game/interactables" instance=ExtResource("5_ef3xn")]
-position = Vector2(1146, 30)
-action_index = 4
-action_value = 1
-action_name = "night"
-action_value_2 = Vector2(960, 37)
-tag = 222
 
 [node name="AudioHandler" type="Node2D" parent="Main game"]
 script = ExtResource("10_qiers")
